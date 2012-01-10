@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "typecollection"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Petty"]
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/typecollection.rb",
+    "lib/typecollection/base.rb",
     "lib/typecollection/class+inferred_type.rb",
     "lib/typecollection/class_methods.rb",
     "test/helper.rb",
