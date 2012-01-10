@@ -1,10 +1,11 @@
 class Class
   def inferred_type()
-    klass_name   = self.name
+    klass_name   = self.name.demodulize
     parent_klass = self.superclass
     while(parent_klass != nil)
-      if (klass_name.end_with?(parent_klass.name))
-        return klass_name.gsub(/#{parent_klass.name}\z/, "")
+      check = parent_klass.name.demodulize
+      if (klass_name.end_with?(check))
+        return klass_name.gsub(/#{check}\z/, "")
       end
       parent_klass = parent_klass.superclass
     end

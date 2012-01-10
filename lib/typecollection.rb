@@ -1,3 +1,4 @@
+require 'active_support/inflector'
 require 'typecollection'
 require 'typecollection/class+inferred_type'
 require 'typecollection/class_methods'
