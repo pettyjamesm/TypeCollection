@@ -17,8 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "typecollection"
   gem.homepage = "http://github.com/pettyjamesm/typecollection"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{TypeCollection maintains a record of sub-types for a given
+    class based on a common suffix.}
+  gem.description = %Q{Easily map subtypes into their parent type for later retrieval}
   gem.email = "jp@jibe.com"
   gem.authors = ["James Petty"]
   # dependencies defined in Gemfile
