@@ -2,7 +2,7 @@ require 'helper'
 
 # => Define a Type Collection
 class SomeType
-  include TypeCollection
+  include TypeCollection::Base
 end
 # => Extend that Type Collection
 class ExtendedSomeType < SomeType
@@ -13,7 +13,7 @@ class TestTypecollection < Test::Unit::TestCase
   should "Function inside packages" do
     # => Define a Type Collection
     class SomeType
-      include TypeCollection
+      include TypeCollection::Base
     end
     # => Extend that Type Collection
     class ExtendedSomeType < TestTypecollection::SomeType
