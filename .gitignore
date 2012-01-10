@@ -49,3 +49,4 @@ pkg
 
 # Eclipse Project
 .project
+Gemfile.lock
