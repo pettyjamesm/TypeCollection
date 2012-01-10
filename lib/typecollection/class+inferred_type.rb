@@ -1,6 +1,6 @@
 class Class
   def inferred_type()
-    klass_name   = self.name.demodulize
+    klass_name   = self.name.split("::").last
     parent_klass = self.superclass
     while(parent_klass != nil)
       check = parent_klass.name.split("::").last
