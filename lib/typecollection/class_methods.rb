@@ -34,7 +34,9 @@ module TypeCollection
       super if (defined?(super))
       type = child.inferred_type()
       if (type.nil?)
-        error = "Invalid Name: #{child.name}! Child class names must end with \"#{self.name}\"."
+        cname = child.name.split("::").last
+        pname = self.name.split("::").last
+        error = "Invalid Name: #{ cname }! Child class names must end with \"#{ pname }\"."
         raise TypeCollection::InvalidChildType.new(error)
       end
       __tc_members()[type] = child
