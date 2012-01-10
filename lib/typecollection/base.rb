@@ -13,6 +13,17 @@ module TypeCollection
         raise TypeCollection::UnknownChildType.new() unless (mems.has_key?(type))
         return mems[type]
       end
+      # Get similar type based on the object passed in which can be a String, 
+      # Object (using the inferred type), or Class
+      def get_associated_type(associate)
+        if (!associate.kind_of?(String))
+          if (!associate.kind_of?(Class))
+            associate = associate.class
+          end
+          associate = associate.inferred_type()
+        end
+        return self.get_type(associate)
+      end
     end
     
     def self.included(base)
