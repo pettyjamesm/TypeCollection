@@ -5,7 +5,7 @@ class Class
     while(parent_klass != nil)
       check = parent_klass.name.split("::").last
       if (klass_name.match(check))
-        return klass_name.gsub(/#{check}\z/, "")
+        return klass_name.gsub(check, "")
       end
       parent_klass = parent_klass.superclass
     end
