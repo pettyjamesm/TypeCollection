@@ -27,7 +27,8 @@ Gem::Specification.new do |s|
     "lib/typecollection/class+inferred_type.rb",
     "lib/typecollection/class_methods.rb",
     "test/helper.rb",
-    "test/test_typecollection.rb"
+    "test/test_typecollection.rb",
+    "typecollection.gemspec"
   ]
   s.homepage = "http://github.com/pettyjamesm/TypeCollection"
   s.licenses = ["MIT"]
