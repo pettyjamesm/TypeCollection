@@ -1,11 +1,8 @@
 require 'typecollection'
 require 'typecollection/class+inferred_type'
 require 'typecollection/class_methods'
+require 'typecollection/base'
 
 module TypeCollection
-  # The intended means to use a TypeCollection is to include TypeCollection
-  # in your class definition.
-  def self.included(base)
-    base.extend(TypeCollection::ClassMethods)
-  end
+
 end
