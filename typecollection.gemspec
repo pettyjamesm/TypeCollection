@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "typecollection"
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Petty"]
-  s.date = "2012-01-10"
+  s.date = "2012-01-18"
   s.description = "Easily map subtypes into their parent type for later retrieval"
   s.email = "jp@jibe.com"
   s.extra_rdoc_files = [
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/typecollection/base.rb",
     "lib/typecollection/class+inferred_type.rb",
     "lib/typecollection/class_methods.rb",
+    "lib/typecollection/object+inferred_type.rb",
     "test/helper.rb",
     "test/test_typecollection.rb",
     "typecollection.gemspec"
