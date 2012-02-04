@@ -79,3 +79,7 @@ class SecondFileWriter < FileWriter
 		File.open(self.class.file_name, 'a'){|f| f.write(string_contents) }
 	end
 end
+
+# Example of how you might perform this example
+#
+# XMLGenerator.generate_all_feeds(["one", 2, "three"])
