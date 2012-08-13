@@ -10,7 +10,7 @@ module TypeCollection
       def get_type(type)
         type = type.inferred_type() if (type.kind_of?(Class))
         mems = __tc_members()
-        raise TypeCollection::UnknownChildType.new("Unregisterred type: #{type}") unless (mems.has_key?(type))
+        raise TypeCollection::UnknownChildType.new("Unregistered type: #{type}") unless (mems.has_key?(type))
         return mems[type]
       end
       # Get similar type based on the object passed in which can be a String, 
