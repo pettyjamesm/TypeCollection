@@ -3,9 +3,9 @@ class Class
     klass_name   = self.name.split("::").last
     parent_klass = self.superclass
     while(parent_klass != nil)
-      check = parent_klass.name.split("::").last
+      check = /#{parent_klass.name.split("::").last}$/
       if (klass_name.match(check))
-        return klass_name.gsub(check, "")
+        return klass_name.gsub(check, '')
       end
       parent_klass = parent_klass.superclass
     end
