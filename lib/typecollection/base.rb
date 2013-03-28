@@ -1,5 +1,6 @@
 module TypeCollection
   NAME_DECOMPOSER = /(^|(?<namespace>.*):{2})(?<constant>[^:]+)$/
+  class << self; attr_accessor :create_unknown_types; end
 
   module Base
     module BaseClassMethods
@@ -37,17 +38,25 @@ module TypeCollection
       end
       # Get similar type based on the object passed in which can be a String,
       # Object (using the inferred type), or Class
-      def get_associated_type(associate)
+      def get_associated_type(associate, create_if_unknown=TypeCollection.create_unknown_types)
         if (!associate.kind_of?(String))
           if (!associate.kind_of?(Class))
             associate = associate.class
           end
           associate = associate.inferred_type()
         end
-        return self.get_type(associate)
+        begin
+          self.get_type(associate)
+        rescue TypeCollection::UnknownChildType => uct
+          if create_if_unknown
+            self.generate_type(associate)
+          else
+            raise
+          end
+        end
       end
     end
-    
+
     def self.included(base)
       base.extend(TypeCollection::ClassMethods)
       base.extend(TypeCollection::Base::BaseClassMethods)
