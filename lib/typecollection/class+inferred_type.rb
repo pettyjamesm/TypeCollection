@@ -1,14 +1,15 @@
 class Class
-  def inferred_type()
-    klass_name   = self.name.split("::").last
-    parent_klass = self.superclass
-    while(parent_klass != nil)
-      check = /#{parent_klass.name.split("::").last}$/
-      if (klass_name.match(check))
-        return klass_name.gsub(check, '')
-      end
-      parent_klass = parent_klass.superclass
+  def __tc_collection_root()
+    root = self
+    while root.superclass && root.superclass.include?(TypeCollection::Base)
+      root = root.superclass
     end
-    return nil
+    root
+  end
+
+  def inferred_type()
+    klass_name = self.name.split("::").last
+    root_name = __tc_collection_root.name.split("::").last
+    klass_name.gsub(root_name, "")
   end
 end
