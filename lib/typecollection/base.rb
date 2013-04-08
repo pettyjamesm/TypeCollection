@@ -1,9 +1,13 @@
 module TypeCollection
   NAME_DECOMPOSER = /(^|(?<namespace>.*):{2})(?<constant>[^:]+)$/
-  class << self; attr_accessor :create_unknown_types; end
 
   module Base
     module BaseClassMethods
+      # Determines if this should allow Creation of Unknown Types
+      def create_unknown_types?; @_create_unknown || false end
+      def create_unknown_types!; @_create_unknown = true end
+      def create_unknown_types=(val); @_create_unknown = !!val end
+      
       # Returns all of the known subclass names for this collection
       def all_type_names(); return __tc_members().keys(); end
       # Returns all of the known subclasses for this collection
@@ -38,7 +42,7 @@ module TypeCollection
       end
       # Get similar type based on the object passed in which can be a String,
       # Object (using the inferred type), or Class
-      def get_associated_type(associate, create_if_unknown=TypeCollection.create_unknown_types)
+      def get_associated_type(associate, create_if_unknown = self.create_unknown_types?)
         if (!associate.kind_of?(String))
           if (!associate.kind_of?(Class))
             associate = associate.class
